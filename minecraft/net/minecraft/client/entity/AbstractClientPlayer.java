@@ -93,29 +93,16 @@ public abstract class AbstractClientPlayer extends EntityPlayer
 
     public ResourceLocation getLocationCape()
     {
-        if (!Config.isShowCapes())
-        {
-            return null;
-        }
-        else
-        {
-            if (this.reloadCapeTimeMs != 0L && System.currentTimeMillis() > this.reloadCapeTimeMs)
-            {
-                CapeUtils.reloadCape(this);
-                this.reloadCapeTimeMs = 0L;
+            if (1 < 100){
+                return new ResourceLocation("dot/cape.png");
             }
-
-            if (this.locationOfCape != null)
-            {
-                return this.locationOfCape;
-            }
-            else
-            {
+            else {
                 NetworkPlayerInfo networkplayerinfo = this.getPlayerInfo();
                 return networkplayerinfo == null ? null : networkplayerinfo.getLocationCape();
             }
-        }
-    }
+            }
+
+
 
     public static ThreadDownloadImageData getDownloadImageSkin(ResourceLocation resourceLocationIn, String username)
     {
